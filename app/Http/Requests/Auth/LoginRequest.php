@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,8 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
+        $credentials = $this->only('email', 'password');
+        
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
@@ -48,6 +51,16 @@ class LoginRequest extends FormRequest
                 'email' => trans('auth.failed'),
             ]);
         }
+
+         // Check if the authenticated user is active
+         $user = User::where('email', $credentials['email'])->first();
+
+         if ($user->status == 'inactive') {
+             Auth::logout(); // Logout the user
+             throw ValidationException::withMessages([
+                 'email' => trans('User is currently inactive'),
+             ]);
+         }
 
         RateLimiter::clear($this->throttleKey());
     }
