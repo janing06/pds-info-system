@@ -42,6 +42,8 @@ $(function () {
             },
         ],
     });
+
+    // custom search field
     $("#custom-search-field").keyup(function () {
         table.search($(this).val()).draw();
     });

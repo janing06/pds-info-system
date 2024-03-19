@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Web\PDS\PersonalInformartionController;
 use App\Http\Controllers\Web\User\ActivateUser;
 use App\Http\Controllers\Web\User\DeactivateUser;
 use App\Http\Controllers\Web\User\UserController;
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function () {
     });
 	Route::resource('users', UserController::class);
 
+
+	Route::resource('pds', PersonalInformartionController::class);
 });
 
 require __DIR__.'/auth.php';
