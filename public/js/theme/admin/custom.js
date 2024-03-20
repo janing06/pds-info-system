@@ -13,6 +13,7 @@ function buttons(button, type) {
     }
 }
 // end
+
 // start => function for adding "," very 3 digits in amount automatically
 function FormatCurrency(ctrl) {
     //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys

@@ -74,6 +74,10 @@ $(function () {
                 toast.fire({
                     icon: "success",
                     title: response.message,
+                    showCloseButton: true,
+                    width: 500,
+                    timer: 2000,
+                    timerProgressBar: true,
                 });
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
@@ -107,6 +111,10 @@ $(function () {
                 toast.fire({
                     icon: "success",
                     title: response.message,
+                    showCloseButton: true,
+                    width: 500,
+                    timer: 2000,
+                    timerProgressBar: true,
                 });
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
@@ -140,6 +148,10 @@ $(function () {
                 toast.fire({
                     icon: "success",
                     title: response.message,
+                    showCloseButton: true,
+                    width: 500,
+                    timer: 2000,
+                    timerProgressBar: true,
                 });
             })
             .fail(function (jqXHR, textStatus, errorThrown) {

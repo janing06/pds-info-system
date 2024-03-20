@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\DataTables;
@@ -33,27 +34,32 @@ class UserController extends Controller
 		return view('user.create');
 	}
 
-	public function table(){
+	public function table(Request $request)
+	{
 
-		$users = User::select('id', 'first_name', 'last_name', 'email', 'role', 'status', 'created_at');
+		if ($request->ajax()) {
 
-		return DataTables::of($users)
-		->addColumn('action', 'user.table-buttons')
-		->editColumn('role', function($user){
-			return ucwords($user->role);
-		})
-		->editColumn('status', function($user) {
-			if ($user->status == 'active') {
-				 return "<span class='badge bg-success px-4 py-2 rounded-pill'>Active</span>";
-			} else {
-				return "<span class='badge bg-danger px-4 py-2 rounded-pill'>Inactive</span>";
-			}
-		})
-		->rawColumns(['status', 'action'])
-		->editColumn('created_at', function ($user) {
-				return $user->created_at->format('F jS \of Y'); // human readable format
-		})
-		->toJson();
+
+			$users = User::select('id', 'first_name', 'last_name', 'email', 'role', 'status', 'created_at')->where('id', '!=', Auth::id());
+
+			return DataTables::of($users)
+				->addColumn('action', 'user.table-buttons')
+				->editColumn('role', function ($user) {
+					return ucwords($user->role);
+				})
+				->editColumn('status', function ($user) {
+					if ($user->status == 'active') {
+						return "<span class='badge bg-success px-4 py-2 rounded-pill'>Active</span>";
+					} else {
+						return "<span class='badge bg-danger px-4 py-2 rounded-pill'>Inactive</span>";
+					}
+				})
+				->rawColumns(['status', 'action'])
+				->editColumn('created_at', function ($user) {
+					return $user->created_at->format('F jS \of Y'); // human readable format
+				})
+				->toJson();
+		}
 	}
 
 	/**
@@ -63,7 +69,7 @@ class UserController extends Controller
 	{
 
 		$validated = $request->validated();
-		
+
 		$user = new User;
 		$user->first_name = $validated['first_name'];
 		$user->last_name = $validated['last_name'];
@@ -73,7 +79,7 @@ class UserController extends Controller
 		$user->password = Hash::make($validated['password']);
 		$user->save();
 
-		Alert::toast('Successfully Added', 'success');
+		Alert::toast('Successfully Added', 'success')->timerProgressbar(true)->autoClose(2000);
 
 		return redirect()->route('users.index');
 	}
@@ -101,17 +107,17 @@ class UserController extends Controller
 	{
 		$validated = $request->validated();
 
-		if(isset($validated['password'])){
+		if (isset($validated['password'])) {
 			$validated['password'] = Hash::make($validated['password']);
-		}else{
+		} else {
 			$validated['password'] = $user->password;
 		}
 
 		$user->update($validated);
 
 		Alert::toast('Successfully Updated', 'success');
-		
-		return redirect()->route('users.index');
+
+		return back();
 	}
 
 	/**
@@ -120,15 +126,15 @@ class UserController extends Controller
 	public function destroy(Request $request, User $user)
 	{
 
-		if($request->ajax()){
+		if ($request->ajax()) {
 			$user->delete();
 			return response()->json([
 				'success' => true,
 				'message' => 'User Successfully Deleted',
 
-		  ], Response::HTTP_OK);
+			], Response::HTTP_OK);
 		}
-		
+
 		$user->delete();
 
 		return redirect()->route('users.index');

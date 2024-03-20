@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('personal_information_id')->constrained(
                 table: 'personal_information',
                 indexName: 'permanent_address_personal_information_id'
-            );
+            )->onDelete('cascade');
             $table->string('province');
             $table->string('city');
             $table->string('barangay');

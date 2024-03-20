@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('middle_name');
-            $table->string('last_name');
-            $table->enum('suffix', ['none', 'JR', 'SR', 'II', 'III', 'IV']);
+            $table->string('surname');
+            $table->enum('suffix', ['N/A', 'JR', 'SR', 'II', 'III', 'IV']);
             $table->timestamp('date_of_birth');
             $table->string('place_of_birth');
             $table->enum('sex', ['male', 'female']);

@@ -15,16 +15,15 @@ class ActivateUser extends Controller
      */
     public function __invoke(Request $request, User $user)
     {
-        if ($request->ajax()){
+        if ($request->ajax()) {
 
             $user->status = 'active';
             $user->save();
 
             return response()->json([
-				'success' => true,
-				'message' => 'User Activated',
-
-		  ], Response::HTTP_OK);
+                'success' => true,
+                'message' => 'User Activated',
+            ], Response::HTTP_OK);
         }
     }
 }

@@ -43,13 +43,13 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-3">
-                                <label for="last_name">Last Name
+                                <label for="surname">Surname
                                     <x-asterisks />
                                 </label>
-                                <input type="text" id="last_name" name="last_name"
-                                    class="form-control @error('last_name') is-invalid @enderror"
-                                    placeholder="Last Name" value="{{ old('last_name') }}" required>
-                                @error('last_name')
+                                <input type="text" id="surname" name="surname"
+                                    class="form-control @error('surname') is-invalid @enderror" placeholder="Surname"
+                                    value="{{ old('surname') }}" required>
+                                @error('surname')
                                     <x-input-error message="{{ $message }}" />
                                 @enderror
                             </div>
@@ -61,7 +61,7 @@
                                 </label>
                                 <select name="suffix" id="suffix"
                                     class="form-select @error('suffix') is-invalid @enderror">
-                                    <option value="none" selected>None</option>
+                                    <option value="N/A" selected>N/A</option>
                                     <option value="JR">JR</option>
                                     <option value="SR">SR</option>
                                     <option value="II">II</option>

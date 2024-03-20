@@ -3,8 +3,9 @@
 namespace App\Http\Requests\PDS;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StorePDSRequest extends FormRequest
+class UpdatePDSRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,6 +22,8 @@ class StorePDSRequest extends FormRequest
      */
     public function rules(): array
     {
+        $pdsId = $this->route('pd')->id;
+
         return [
             'first_name' => [
                 'required',
@@ -112,6 +115,7 @@ class StorePDSRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
+                Rule::unique('personal_information', 'email')->ignore($pdsId),
             ],
             'residential_province' => [
                 'required',

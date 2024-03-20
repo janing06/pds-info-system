@@ -93,14 +93,16 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item  {{ request()->routeIs('users.*') ? 'active' : '' }}">
-                <a href="{{ route('users.index') }}" class="nav-link">
-                    <span class="sidebar-icon">
-                        <i class="icon icon-xs me-2 bi-file-earmark-text"></i>
-                    </span>
-                    <span class="sidebar-text">Users</span>
-                </a>
-            </li>
+            @if (auth()->user()->role == 'admin')
+                <li class="nav-item  {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                    <a href="{{ route('users.index') }}" class="nav-link">
+                        <span class="sidebar-icon">
+                            <i class="icon icon-xs me-2 bi-file-earmark-text"></i>
+                        </span>
+                        <span class="sidebar-text">Users</span>
+                    </a>
+                </li>
+            @endif
             <li class="nav-item  {{ request()->routeIs('pds.*') ? 'active' : '' }}">
                 <a href="{{ route('pds.index') }}" class="nav-link">
                     <span class="sidebar-icon">
