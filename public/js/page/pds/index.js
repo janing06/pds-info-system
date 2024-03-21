@@ -33,12 +33,7 @@ $(function () {
             { data: "sex", name: "sex" },
             { data: "email", name: "email" },
             { data: "created_at", name: "created_at" },
-            {
-                data: "action",
-                name: "action",
-                orderable: false,
-                searchable: false,
-            },
+            { data: "action", name: "action", orderable: false, searchable: false,},
         ],
     });
 

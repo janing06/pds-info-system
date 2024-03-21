@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Web\PDS\FamilyBackgroundController;
 use App\Http\Controllers\Web\PDS\PersonalInformartionController;
 use App\Http\Controllers\Web\User\ActivateUser;
 use App\Http\Controllers\Web\User\DeactivateUser;
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
 
     Route::prefix('pds')->name('pds.')->group(function () {
+        Route::patch('update/family/background/{pd}', FamilyBackgroundController::class)->name('updateFamilyBackground');
         Route::get('table', [PersonalInformartionController::class, 'table'])->name('table');
     });
     Route::resource('pds', PersonalInformartionController::class);

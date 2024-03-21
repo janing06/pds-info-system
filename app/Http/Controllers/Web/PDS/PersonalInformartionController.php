@@ -7,6 +7,7 @@ use App\Http\Requests\PDS\StorePDSRequest;
 use App\Http\Requests\PDS\UpdatePDSRequest;
 use App\Models\Address\PermanentAddress;
 use App\Models\Address\ResidentialAddress;
+use App\Models\FamilyBackground\FamilyBackground;
 use App\Models\PersonalInformation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -99,6 +100,11 @@ class PersonalInformartionController extends Controller
         $permanentAddress->save();
 
 
+        $familyBackground = new FamilyBackground();
+        $familyBackground->personal_information_id = $pds->id;
+        $familyBackground->save();
+
+
         Alert::toast('PDS Successfully Added', 'success')->autoClose(2000)->timerProgressBar(true);
         return redirect()->route('pds.index');
     }
@@ -106,7 +112,12 @@ class PersonalInformartionController extends Controller
     public function show(string $id)
     {
         $pds = PersonalInformation::findOrFail($id);
-        return view('pds.show', compact('pds'));
+
+        $familyBackground = FamilyBackground::findOrFail($pds->id);
+        $children = $familyBackground->children;
+        // dd($children);
+
+        return view('pds.show', compact('pds', 'children'));
     }
 
     public function update(UpdatePDSRequest $request, PersonalInformation $pd)
@@ -175,7 +186,7 @@ class PersonalInformartionController extends Controller
         if ($request->ajax()) {
             $pd->delete();
             return response()->json([
-                'successs' => true,
+                'success' => true,
                 'message' => 'PDS Successfully deleted'
             ], Response::HTTP_OK);
         }

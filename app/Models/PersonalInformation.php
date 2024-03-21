@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Address\PermanentAddress;
 use App\Models\Address\ResidentialAddress;
+use App\Models\FamilyBackground\FamilyBackground;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -43,5 +44,10 @@ class PersonalInformation extends Model
     public function permanentAddress()
     {
         return $this->hasOne(PermanentAddress::class);
+    }
+
+    public function familyBackground()
+    {
+        return $this->hasOne(FamilyBackground::class);
     }
 }
