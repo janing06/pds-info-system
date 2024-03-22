@@ -62,7 +62,7 @@
         @include('layouts.partials.admin.footer')
 
     </main>
-    @livewireScripts
+
 
     {{-- popper for dropdowns --}}
     <script src="{{ asset('vendor/@popperjs/popper.min.js') }}"></script>
@@ -102,6 +102,9 @@
 
     {{-- page specific js files --}}
     @stack('scripts')
+
+    @livewireScripts
+
 
 
 </body>
