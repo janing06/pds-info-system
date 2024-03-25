@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', '| PDS')
 
     <x-heading>
         <x-slot:title>

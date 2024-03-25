@@ -7,6 +7,7 @@ use App\Http\Requests\PDS\StorePDSRequest;
 use App\Http\Requests\PDS\UpdatePDSRequest;
 use App\Models\Address\PermanentAddress;
 use App\Models\Address\ResidentialAddress;
+use App\Models\EducationalBackground\EducationalBackground;
 use App\Models\FamilyBackground\FamilyBackground;
 use App\Models\PersonalInformation;
 use Illuminate\Http\Request;
@@ -103,7 +104,6 @@ class PersonalInformartionController extends Controller
         $familyBackground = new FamilyBackground();
         $familyBackground->personal_information_id = $pds->id;
         $familyBackground->save();
-
 
         Alert::toast('PDS Successfully Added', 'success')->autoClose(2000)->timerProgressBar(true);
         return redirect()->route('pds.index');

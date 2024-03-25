@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
 
     Route::prefix('pds')->name('pds.')->group(function () {
-        Route::patch('update/family/background/{pd}', FamilyBackgroundController::class)->name('updateFamilyBackground');
+        Route::patch('update/family/background/{familybg}', FamilyBackgroundController::class)->name('updateFamilyBackground');
         Route::get('table', [PersonalInformartionController::class, 'table'])->name('table');
     });
     Route::resource('pds', PersonalInformartionController::class);

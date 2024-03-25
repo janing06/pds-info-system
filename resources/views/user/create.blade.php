@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', '| Users | Create')
 
     <x-heading>
         <x-slot:title>

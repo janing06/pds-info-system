@@ -13,10 +13,7 @@ return new class extends Migration
     {
         Schema::create('family_backgrounds', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('personal_information_id')->constrained(
-                table: 'personal_information',
-                indexName: 'family_background_personal_information_id'
-            )->onDelete('cascade');
+            $table->foreignId('personal_information_id')->constrained('personal_information')->onDelete('cascade');
             $table->string('spouse_first_name')->nullable();
             $table->string('spouse_middle_name')->nullable();
             $table->string('spouse_surname')->nullable();

@@ -10,7 +10,7 @@
     <meta name="author" content="Kenneth Santianez">
     <meta name="robots" content="noindex">
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name') }} @yield('title', '')</title>
 
     {{-- Favicons --}}
 
@@ -33,6 +33,11 @@
 
     {{-- datepicker --}}
     <link type="text/css" rel="stylesheet" href="{{ asset('vendor/vanillajs-datepicker/datepicker-bs5.min.css') }}">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"
+        integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- glightbox --}}
     <link type="text/css" rel="stylesheet" href="{{ asset('vendor/glightbox/glightbox.min.css') }}">
@@ -70,6 +75,10 @@
     {{-- jquery --}}
     <script type="text/javascript" src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"
+        integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     {{-- bootstrap --}}
     <script src="{{ asset('vendor/bootstrap/bootstrap.min.js') }}"></script>
 
@@ -89,6 +98,8 @@
 
     {{-- bootstrap-select --}}
     <script type="text/javascript" src="{{ asset('vendor/bootstrap-select/bootstrap-select.min.js') }}"></script>
+
+
 
     {{-- glightbox --}}
     <script type="text/javascript" src="{{ asset('vendor/glightbox/glightbox.min.js') }}"></script>

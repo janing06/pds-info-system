@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    @section('title', '| PDS | Create')
     <x-heading>
         <x-slot:title>
             Add PDS

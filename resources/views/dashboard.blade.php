@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    @section('title', '| Dashboard')
     <div class="row py-4 py-md-7 px-md-7">
         <div class="col-12 col-md-6 mb-4">
             <div class="card border-0 shadow">

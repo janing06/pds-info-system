@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\Address\PermanentAddress;
 use App\Models\Address\ResidentialAddress;
+use App\Models\CivilServiceEligibility\CivilServiceEligibilty;
+use App\Models\EducationalBackground\EducationalBackground;
 use App\Models\FamilyBackground\FamilyBackground;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -49,5 +51,15 @@ class PersonalInformation extends Model
     public function familyBackground()
     {
         return $this->hasOne(FamilyBackground::class);
+    }
+
+    public function educationalBackground()
+    {
+        return $this->hasMany(EducationalBackground::class);
+    }
+
+    public function civilServiceEligibility()
+    {
+        return $this->hasMany(CivilServiceEligibilty::class);
     }
 }
