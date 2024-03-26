@@ -56,6 +56,12 @@
                                         </svg>
                                         Voluntary</a>
                                 </li>
+                                <li class="nav-item mb-2 shadow-sm">
+                                    <a class="nav-link mb-sm-3 mb-md-0  d-flex align-items-center justify-content-start"
+                                        data-bs-toggle="tab" href="#learning_and_development">
+                                        <i class="bi bi-rocket-takeoff ms-3 me-4 fs-5"></i>
+                                        L&D</a>
+                                </li>
                             </ul>
                         </div>
 
@@ -70,6 +76,7 @@
                                 @include('pds.sections.civil-service-eligibility')
                                 @include('pds.sections.work-experience')
                                 @include('pds.sections.voluntary-work')
+                                @include('pds.sections.learning-and-development')
                             </div>
                         </div>
 

@@ -19,6 +19,7 @@
                             <option value="secondary">Secondary</option>
                             <option value="college">College</option>
                             <option value="masters">Master's</option>
+                            <option value="doctors">Dotors's</option>
                         </select>
                         @error('level')
                             <x-input-error message="{{ $message }}" />

@@ -7,6 +7,7 @@ use App\Models\Address\ResidentialAddress;
 use App\Models\CivilServiceEligibility\CivilServiceEligibilty;
 use App\Models\EducationalBackground\EducationalBackground;
 use App\Models\FamilyBackground\FamilyBackground;
+use App\Models\LearningAndDevelopment\LearningAndDevelopment;
 use App\Models\VoluntaryWork\VoluntaryWork;
 use App\Models\WorkExperience\WorkExperience;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -73,5 +74,10 @@ class PersonalInformation extends Model
     public function voluntaryWork()
     {
         return $this->hasMany(VoluntaryWork::class);
+    }
+
+    public function learningAndDevelopment()
+    {
+        return $this->hasMany(LearningAndDevelopment::class);
     }
 }
