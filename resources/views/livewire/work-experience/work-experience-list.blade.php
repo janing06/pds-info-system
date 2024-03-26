@@ -140,16 +140,16 @@
                 $('#workExperienceDeleteModal').modal('hide');
             });
 
-            // window.addEventListener('alert', event => {
-            //     toast.fire({
-            //         icon: event.detail.type,
-            //         title: event.detail.message ?? '',
-            //         showCloseButton: true,
-            //         width: 500,
-            //         timer: 2000,
-            //         timerProgressBar: true,
-            //     });
-            // });
+            window.addEventListener('alert', event => {
+                toast.fire({
+                    icon: event.detail.type,
+                    title: event.detail.message ?? '',
+                    showCloseButton: true,
+                    width: 500,
+                    timer: 2000,
+                    timerProgressBar: true,
+                });
+            });
         </script>
     @endpush
 </div>

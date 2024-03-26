@@ -107,7 +107,6 @@ class EligibilityList extends Component
 
     public function deleteEligibility()
     {
-
         $this->eligibility->delete();
         $this->dispatch('alert', type: 'success', message: 'Eligibility has been deleted.', title: 'Eligibility');
         $this->dispatch('close-eligibility-delete-modal');
