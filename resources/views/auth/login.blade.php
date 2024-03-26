@@ -35,7 +35,8 @@
                                     </span>
                                     <input type="email" name="email"
                                         class="form-control @error('email') is-invalid @enderror"
-                                        placeholder="Your Email" id="email" autofocus value="{{ old('email') }}">
+                                        placeholder="Your Email" id="email" value="test@test.com" autofocus
+                                        value="{{ old('email') }}">
                                     @error('email')
                                         <x-input-error message="{{ $message }}" />
                                     @enderror
@@ -51,7 +52,7 @@
                                         <span class="input-group-text" id="basic-addon2">
                                             <i class="icon icon-xs text-gray-600 bi bi-shield-lock-fill"></i>
                                         </span>
-                                        <input type="password" name="password" placeholder="Password"
+                                        <input type="password" name="password" value="12345678" placeholder="Password"
                                             class="form-control @error('password') is-invalid @enderror" id="password">
                                         @error('password')
                                             <x-input-error message="{{ $message }}" />

@@ -13,31 +13,36 @@
                 <div class="row">
                     <div class="col-xxl-2 mb-3">
                         <div class="nav-wrapper position-relative py-0 border-0">
-                            <ul class="nav nav-tabs nav-fill flex-column">
-                                <li class="nav-item mb-2">
+                            <ul class="nav nav-tabs nav-fill flex-column border-0">
+                                <li class="nav-item mb-2 shadow-sm">
                                     <a class="nav-link mb-sm-3 mb-md-0 active d-flex align-items-center justify-content-start"
                                         data-bs-toggle="tab" href="#personal_information"><i
                                             class="bi bi-person-circle ms-3 me-4 fs-5"></i>
-                                        Personal
-                                        Info</a>
+                                        Profile</a>
                                 </li>
-                                <li class="nav-item mb-2">
+                                <li class="nav-item mb-2 shadow-sm">
                                     <a class="nav-link mb-sm-3 mb-md-0  d-flex align-items-center justify-content-start"
                                         data-bs-toggle="tab" href="#family_background"><i
                                             class="bi bi-person-bounding-box ms-3 me-4 fs-5"></i>
                                         Background</a>
                                 </li>
-                                <li class="nav-item mb-2">
+                                <li class="nav-item mb-2 shadow-sm">
                                     <a class="nav-link mb-sm-3 mb-md-0  d-flex align-items-center justify-content-start"
                                         data-bs-toggle="tab" href="#educational_background"><i
                                             class="bi bi-book-half ms-3 me-4 fs-5"></i>
                                         Education</a>
                                 </li>
-                                <li class="nav-item mb-2">
+                                <li class="nav-item mb-2 shadow-sm">
                                     <a class="nav-link mb-sm-3 mb-md-0  d-flex align-items-center justify-content-start"
                                         data-bs-toggle="tab" href="#civil_service_eligibility"><i
                                             class="bi bi-list-check ms-3 me-4 fs-5"></i>
                                         Eligibility</a>
+                                </li>
+                                <li class="nav-item mb-2 shadow-sm">
+                                    <a class="nav-link mb-sm-3 mb-md-0  d-flex align-items-center justify-content-start"
+                                        data-bs-toggle="tab" href="#work_experience"><i
+                                            class="bi bi-briefcase ms-3 me-4 fs-5"></i>
+                                        Experience</a>
                                 </li>
                             </ul>
                         </div>
@@ -51,6 +56,7 @@
                                 @include('pds.sections.family-background')
                                 @include('pds.sections.educational-background')
                                 @include('pds.sections.civil-service-eligibility')
+                                @include('pds.sections.work-experience')
                             </div>
                         </div>
 

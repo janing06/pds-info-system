@@ -24,7 +24,6 @@
                                     <a class="small fw-bold" href="#">{{ $data->child_date_of_birth }}</a>
                                 </td>
                                 <td>
-
                                     <div class="btn-group">
                                         <button
                                             class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
@@ -42,7 +41,6 @@
                                                     class="bi bi-trash-fill text-danger me-2"></span>Remove</button>
                                         </div>
                                     </div>
-
                                 </td>
                             </tr>
                         @empty

@@ -17,31 +17,31 @@ class EducationList extends Component
 
     public $personalInformationId;
 
-    #[Rule('string|required')]
+    #[Rule('required|string')]
     public $level;
 
-    #[Rule('string|required')]
+    #[Rule('required|string')]
     public $school_name;
 
-    #[Rule('string|required')]
+    #[Rule('required|string')]
     public $basic_education_degree_course;
 
-    #[Rule('string|required')]
+    #[Rule('required|string')]
     public $start_date;
 
-    #[Rule('string|required')]
+    #[Rule('required|string')]
     public $end_date;
 
-    #[Rule('string|nullable')]
+    #[Rule('nullable|string')]
     public $highest_level;
 
-    #[Rule('string|nullable')]
+    #[Rule('nullable|string')]
     public $year_graduated;
 
-    #[Rule('string|nullable')]
+    #[Rule('nullable|string')]
     public $honor_received;
 
-    #[Rule('string|nullable')]
+    #[Rule('nullable|string')]
     public $scholarship;
 
     public $education;

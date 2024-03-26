@@ -26,7 +26,7 @@
                                     <a class="small fw-bold" href="#">{{ $data->career_service }}</a>
                                 </td>
                                 <td>
-                                    <a class="small fw-bold" href="#">{{ $data->rate }}</a>
+                                    <a class="small fw-bold" href="#">{{ $data->rating }}</a>
                                 </td>
                                 <td>
                                     <a class="small fw-bold" href="#">{{ $data->examination_date }}</a>
@@ -69,7 +69,7 @@
                 </table>
             </div>
             <div class="mt-3">
-                {{-- {{ $educationalBackgrounds->links(data: ['scrollTo' => false]) }} --}}
+                {{ $eligibilities->links(data: ['scrollTo' => false]) }}
             </div>
         </div>
     </div>

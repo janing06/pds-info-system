@@ -6,10 +6,16 @@ use App\Models\CivilServiceEligibility\CivilServiceEligibilty;
 use App\Models\PersonalInformation;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithPagination;
 use PDO;
 
 class EligibilityList extends Component
 {
+
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
+
     public $personalInformationId;
 
     #[Rule('required|string')]
